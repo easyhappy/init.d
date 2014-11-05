@@ -1,5 +1,7 @@
 echo "Install RVM"
 echo ""
+echo "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3"
+\gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 \curl -L https://get.rvm.io | bash -s stable
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"' >>~/.bashrc
 source ~/.bashrc
@@ -15,9 +17,13 @@ echo ""
 echo "Now you can use rvm command to install ruby"
 echo ""
 echo "source ~/.bashrc"
-echo "rvm pkg install readline"
-echo "rvm install 2.0.0"
-echo "rvm use 2.0.0 --default"
+source ~/.bashrc
+
+echo "rvm get head && rvm autolibs enable && rvm requirements"
+rvm get head && rvm autolibs enable && rvm requirements
+echo "rvm install 2.1.2"
+rvm install 2.1.2
+rvm use 2.1.2 --default
 echo ""
 echo ""
 echo ""
